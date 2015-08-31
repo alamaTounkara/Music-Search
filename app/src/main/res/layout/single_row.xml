@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/single_row_height"
+        android:layout_marginBottom="@dimen/single_row_marginBottom"
+        android:layout_marginTop="@dimen/single_row_marginTop"
+        android:id="@+id/list_row">
+        <ImageView
+            android:layout_width="@dimen/image_width"
+            android:layout_height="@dimen/image_height"
+            android:id="@+id/albumIV"
+            android:layout_marginLeft="@dimen/imag_marginLeft"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/albumIV"
+            android:paddingLeft="@dimen/row_text_marginLeft"
+            android:paddingRight="@dimen/row_text_marginRight" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="artist name"
+                android:id="@+id/trackNameTV"
+                android:fontFamily="Roboto Regular"
+                android:textSize="@dimen/primary_txtSize"
+                android:singleLine="true"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="track name"
+                android:id="@+id/artistNameTV"
+                android:fontFamily="Roboto Regular"
+                android:textSize="@dimen/secondary_txtSize"
+                android:singleLine="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Small Text"
+                android:id="@+id/albumNameTV"
+                android:fontFamily="Roboto Regular"
+                android:textSize="@dimen/secondary_txtSize"
+                android:singleLine="true"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
