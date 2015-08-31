@@ -25,7 +25,6 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.ItemV
 
     List<Result> mApiData; //result data we got from the api
     private Context mContext;
-    private String mImageUrl;
 
 
 
@@ -44,10 +43,8 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.ItemV
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        mImageUrl =mApiData.get(position).getArtworkUrl60(); //image url
         //using Picasso to set of image
-        Picasso.with(mContext).load(mImageUrl).into(holder.mAlbumImage);
-
+        Picasso.with(mContext).load(mApiData.get(position).getArtworkUrl60()).into(holder.mAlbumImage);
         holder.mTrackName.setText(mApiData.get(position).getTrackName());
         holder.mArtistName.setText(mApiData.get(position).getArtistName());
         holder.mAlbumName.setText(mApiData.get(position).getCollectionName());
@@ -85,7 +82,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.ItemV
             Intent intent = new Intent(mContext, LyricsActivity.class);
             intent.putExtra(Constants.ARTIST_NAME, mArtistName.getText().toString());
             intent.putExtra(Constants.SONG_NAME, mTrackName.getText().toString());
-            intent.putExtra(Constants.IMAGE_URL, mImageUrl);
+            intent.putExtra(Constants.IMAGE_URL,mApiData.get(getAdapterPosition()).getArtworkUrl60());
             intent.putExtra(Constants.ALBUM_NAME, mAlbumName.getText().toString());
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             mContext.startActivity(intent);
